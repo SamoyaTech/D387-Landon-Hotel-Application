@@ -27,12 +27,17 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+  welcomeMessageUS: string = ''; //initialize with empty string
+  welcomeMessageFr: string = '';
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
+
+      this.fetchWelcomeMessageUS();
+      this.fetchWelcomeMessageFr();
 
  //     this.rooms=ROOMS;
 
@@ -44,6 +49,31 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+  }
+
+  fetchWelcomeMessageUS(){
+    this.httpClient.get<string>('http://localhost:8080/api/welcome-messageUS')
+      .subscribe({
+        next: (message: string) => {
+          this.welcomeMessageUS = message;
+        },
+        error: (error: any) => {
+          console.error('Error fetching welcome message:', error);
+        }
+      });
+  }
+
+  fetchWelcomeMessageFr() {
+    this.httpClient.get<string>('http://localhost:8080/api/welcome-messageFr')
+      .subscribe({
+        next: (message: string) => {
+          this.welcomeMessageFr = message;
+        },
+        error: (error: any) => {
+          console.error('Error fetching welcome message:', error);
+        }
+      });
+
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
