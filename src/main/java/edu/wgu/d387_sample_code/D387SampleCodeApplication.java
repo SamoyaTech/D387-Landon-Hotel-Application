@@ -1,10 +1,8 @@
 package edu.wgu.d387_sample_code;
 
-import edu.wgu.d387_sample_code.i1n8.DisplayMessage;
+import edu.wgu.d387_sample_code.i18n.DisplayMessage;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Locale;
 

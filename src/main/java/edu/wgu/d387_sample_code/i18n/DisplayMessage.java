@@ -1,4 +1,4 @@
-package edu.wgu.d387_sample_code.i1n8;
+package edu.wgu.d387_sample_code.i18n;
 
 import org.springframework.stereotype.Component;
 import java.util.Locale;

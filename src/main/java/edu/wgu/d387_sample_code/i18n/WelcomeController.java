@@ -1,4 +1,4 @@
-package edu.wgu.d387_sample_code.i1n8;
+package edu.wgu.d387_sample_code.i18n;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,15 +18,14 @@ public class WelcomeController {
     @GetMapping("/welcome-messageUS")
     public String getWelcomeMessageUS(Locale locale) {
         locale = Locale.US;
-        String welcomeMessage = displayMessage.getWelcomeMessage(locale); //get welcome message using DisplayMessage
-        return welcomeMessage;
+        //get welcome message using DisplayMessage
+        return displayMessage.getWelcomeMessage(locale);
     }
 
     @GetMapping("/welcome-messageFr")
     public String getWelcomeMessageFr(Locale locale) {
         locale = Locale.CANADA_FRENCH;
-        String welcomeMessage = displayMessage.getWelcomeMessage(locale);
-        return welcomeMessage;
+        return displayMessage.getWelcomeMessage(locale);
     }
 
 }

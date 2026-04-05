@@ -29,6 +29,7 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
   welcomeMessageUS: string = ''; //initialize with empty string
   welcomeMessageFr: string = '';
+  convertedTimes: string = '';
 
     ngOnInit(){
       this.roomsearch= new FormGroup({
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit{
 
       this.fetchWelcomeMessageUS();
       this.fetchWelcomeMessageFr();
+      this.fetchConvertedTimes()
 
  //     this.rooms=ROOMS;
 
@@ -55,7 +57,7 @@ export class AppComponent implements OnInit{
     this.httpClient.get<string>('http://localhost:8080/api/welcome-messageUS')
       .subscribe({
         next: (message: string) => {
-          this.welcomeMessageUS = message;
+          this.welcomeMessageUS = message; //store fetched message
         },
         error: (error: any) => {
           console.error('Error fetching welcome message:', error);
@@ -73,6 +75,19 @@ export class AppComponent implements OnInit{
           console.error('Error fetching welcome message:', error);
         }
       });
+
+  }
+
+  fetchConvertedTimes(){
+      this.httpClient.get('http://localhost:8080/api/time-conversion', { responseType : 'text' })
+        .subscribe ({
+          next: (message:string) => {
+            this.convertedTimes = message;
+         },
+         error: (error:any) => {
+            console.error('Error fetching time conversion', error)
+         }
+        });
 
   }
 
