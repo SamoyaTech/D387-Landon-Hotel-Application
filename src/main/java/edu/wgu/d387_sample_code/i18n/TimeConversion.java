@@ -25,7 +25,7 @@ public class TimeConversion {
         ZonedDateTime utcTime = zonedDateTime.withZoneSameInstant(utc);
 
         //format
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm a");
 
         String result;
         result = "Join us for an online live presentation held at the" +
