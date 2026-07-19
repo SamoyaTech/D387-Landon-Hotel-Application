@@ -1,29 +1,48 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+# D387 – Advanced Java Multithreaded Application
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D387 – ADVANCED JAVA
-Welcome to Advanced Java! This is an opportunity for students to write multithreaded object-oriented code using Java frameworks and determine how to deploy software applications using cloud services.
+## Overview
+This project was completed as part of **D387 – Advanced Java**, demonstrating the ability to build and modify a full‑stack application using **Spring Boot (Java)** and **Angular (TypeScript)**. The application includes **multithreaded processing**, external API calls, time‑zone messaging, currency exchange, and deployment using **Docker**.
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you will modify a Spring application with a Java back end and an Angular front end to include multithreaded language translation, a message at different time zones, and currency exchange. Then, build a Docker image of the current multithreaded Spring application and containerize it using the supporting documents provided in this task.
+The backend handles concurrent tasks using Java threads, while the frontend provides a clean UI for interacting with translation, time‑zone, and currency features.
 
+---
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to IntelliJ using Git?
+## Features
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+### ✔ Multithreaded Language Translation
+- Uses Java multithreading to translate a message into multiple languages concurrently.
+- Each translation runs in its own thread.
+- Results are combined and returned to the Angular frontend.
 
-2. How to create a branch and start Development?
+### ✔ Time Zone Messaging
+- Generates a message showing the current time in multiple time zones (e.g., EST, PST, UTC).
+- Uses Java’s `ZonedDateTime` and `ZoneId` classes.
+- Returned to the frontend via REST API.
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+### ✔ Currency Exchange
+- Pulls live exchange rates from an external API.
+- Converts a user‑provided amount between currencies.
+- Uses Java HTTP client + JSON parsing.
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
+### ✔ Angular Frontend
+- Displays translation results, time‑zone messages, and currency conversions.
+- Communicates with the Spring Boot backend via REST endpoints.
+- Built and served as part of the full‑stack application.
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+### ✔ Docker Containerization
+- Spring Boot backend packaged as an executable JAR.
+- Dockerfile builds a single image containing the backend.
+- Container runs the multithreaded application on a specified port.
+
+---
+
+## Tech Stack
+
+- Java 17  
+- Spring Boot  
+- Angular  
+- TypeScript  
+- HTML/CSS  
+- REST API integration
+- Docker  
 
